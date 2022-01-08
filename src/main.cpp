@@ -9,8 +9,10 @@ void arr_fill(const int size, int *arr, sf::RectangleShape *entity, const double
     double offset = 0;
     for(int i = 0; i < size; i++){
         arr[i] = rand()%600;
-        entity[i].setSize(sf::Vector2f(width, arr[i]));
-        entity[i].move(sf::Vector2f(offset, 0));
+        //entity[i].setSize(sf::Vector2f(width, arr[i]));
+        entity[i].setSize(sf::Vector2f(width, -arr[i]));
+        //entity[i].move(sf::Vector2f(offset, 0));
+        entity[i].move(sf::Vector2f(offset, 600));
         entity[i].setFillColor(sf::Color::White);
         entity[i].setOutlineColor(sf::Color(255));
         entity[i].setOutlineThickness(-1);
@@ -53,8 +55,8 @@ int main(){
             if (array[i] > array[i + 1])
             {
                 swap(&array[i], &array[i + 1]);
-                entity[i].setSize(sf::Vector2f(width, array[i]));
-                entity[i + 1].setSize(sf::Vector2f(width, array[i + 1]));
+                entity[i].setSize(sf::Vector2f(width, -array[i]));
+                entity[i + 1].setSize(sf::Vector2f(width, -array[i + 1]));
                 entity[i+1].setFillColor(sf::Color::Red);
             } 
 
