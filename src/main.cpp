@@ -1,7 +1,6 @@
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
-#include <windows.h>
 #include <iostream>
 #include <ctime>
 
@@ -9,9 +8,7 @@ void arr_fill(const int size, int *arr, sf::RectangleShape *entity, const double
     double offset = 0;
     for(int i = 0; i < size; i++){
         arr[i] = rand()%600;
-        //entity[i].setSize(sf::Vector2f(width, arr[i]));
         entity[i].setSize(sf::Vector2f(width, -arr[i]));
-        //entity[i].move(sf::Vector2f(offset, 0));
         entity[i].move(sf::Vector2f(offset, 600));
         entity[i].setFillColor(sf::Color::White);
         entity[i].setOutlineColor(sf::Color(255));
@@ -65,7 +62,6 @@ int main(){
             {
                 window.draw(entity[k]);
             }
-            //Sleep(10);
             window.display();
             entity[i+1].setFillColor(sf::Color::White);
         }
